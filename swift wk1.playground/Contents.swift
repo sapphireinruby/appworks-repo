@@ -302,6 +302,12 @@ repeat {
     index += 2
 } while index < numbers.count
 
+//5
+//6
+//7
+//8
+//9
+//10
 //10
 //8
 //6
