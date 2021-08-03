@@ -287,8 +287,16 @@ while j < lottoNumbersVar.count {
 //4.    Please use a repeat-while loop to solve question 2.
 
 var numbers = [10, 9, 8, 7, 6, 5]
-var index = 0
+var i = 0
 
+numbers.reverse()
+repeat {
+    print(numbers[i])
+    i += 1
+} while i < numbers.count
+
+numbers.reverse()
+var index = 0
 repeat {
     print(numbers[index])
     index += 2
