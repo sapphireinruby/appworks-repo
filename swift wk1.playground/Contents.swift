@@ -252,10 +252,24 @@ for i in lottoNumbers {
 
 //3.    Please use a while loop to solve the above question.
 
+var evenNumber: [Int] = []
 var j = 0
+
 while j < lottoNumbersVar.count {
     let numbers = lottoNumbersVar[j]
     print(numbers)
+    if(numbers % 2 == 0) {
+        evenNumber.append(numbers)
+    }
+    if (numbers == 10) {
+        print("")
+        evenNumber.reverse()
+        var k = 0
+        while k < evenNumber.count {
+            print(evenNumber[k])
+            k += 1
+        }
+    }
     j += 1
 }
 
@@ -266,10 +280,15 @@ while j < lottoNumbersVar.count {
 //9
 //10
 
+//10
+//8
+//6
+
 //4.    Please use a repeat-while loop to solve question 2.
 
 var numbers = [10, 9, 8, 7, 6, 5]
 var index = 0
+
 repeat {
     print(numbers[index])
     index += 2
