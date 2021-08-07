@@ -101,7 +101,21 @@ zoo.weeklyHot = horse
 
 // Sometimes there may be a function that's not specific to one instance of a class.  In this case, we can use a type method.  It is a method associated with the type, and not a specific instance. It only be called on the type that defines the type method.
 
+
 // 6. What does Initilizer do in class and struct ?
+
+// Initialization is the process of preparing an instance of a class, structure, or enumeration for use.
+// This process involves setting an initial value for each stored property on that instance and performing any other setup or initialization that’s required before the new instance is ready for use. Swift initializers don’t return a value.
+// Classes and structures must set all of their stored properties to an appropriate initial value by the time an instance of that class or structure is created. Stored properties can’t be left in an indeterminate state.
+
+// Initializers are called to create a new instance of a particular type. Written using the init keyword:
+
+//init() {
+//    // perform some initialization here
+//}
+
+// Structure types automatically receive a memberwise initializer if they don’t define any of their own custom initializers. Unlike a default initializer, the structure receives a memberwise initializer even if it has stored properties that don’t have default values.
+// Unlike a struct, a class doesn’t provide a memberwise initializer automatically — which means we must provide it if we need it. Without providing an initializer, the Swift compiler will flag that as an error:
 
 // 7. What does self mean in an instance method and a type method ?
 // 8. What’s the difference between reference type and value type ?
