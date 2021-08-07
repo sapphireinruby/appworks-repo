@@ -7,20 +7,17 @@ var greeting = "Hello, playground"
 
 //1. Declare a class Animal with property gender and method eat(). The data type of gender should be enum Gender as below and when you call eat() method, it will print
 //I eat everything!
-//enum Gender {
-//    case male
-//    case female
-//    case undefined
-//}
 
 
 class Animal {
-    let animal: String // let animalName: String
+    let animal: String // or let animalName: String
+    
     enum Gender {
         case male
         case female
         case undefined
         }
+    
     init(animal : String){
         self.animal = animal
     }
@@ -32,7 +29,7 @@ class Animal {
 
 //2. Declare three classes: Elephant, Tiger, Horse that inherits from Animal and override the eat method to print what they usually eat.
 
-class Elephant : Animal{  //父子關係
+class Elephant : Animal{  // 冒號為父子關係, Animal is parent or superclass
     override func eat() {
         print("I eat fruit!")
     }
@@ -68,21 +65,33 @@ class Zoo {
 }
 
 let elephant = Elephant(animal: "elephant")
-let tiger = Tiger(animal: "tiger")
+let tiger = Tiger(animal: "tiger") // 冒號為 key: value關係
 let horse = Horse(animal: "horse")
-let cat = Animal(animal: "cat")
-
-let zoo = Zoo(weeklyHot: cat)
+//let cat = Animal(animal: "cat")
+//
+//let zoo = Zoo(weeklyHot: cat)
+let zoo = Zoo(weeklyHot: tiger)
 zoo.weeklyHot = tiger
 zoo.weeklyHot = elephant
 zoo.weeklyHot = horse
 
 
-/*4. What’s the difference between Struct and Class ?
- 5. What’s the difference between instance method and type method ?
- 6. What does Initilizer do in class and struct ?
- 7. What does self mean in an instance method and a type method ?
- 8. What’s the difference between reference type and value type ?**/
+//4. What’s the difference between Struct and Class ?
+
+// A class is a blueprint or template for an instance of that class.
+// Classes support inheritance, whereas structures don't.
+// The inheritance design pattern is very important in object-oriented programming.
+//
+// In the above question, the Animal class is the parent or superclass of the class of Elephant, Tiger and Horse.
+// This means that the Elephant class inherits the properties and behavior of the Animal class. We initialize another animal instance, like tiger by invoking the custom initializer defined in the Animal class.
+
+// Structures are value types, which means that they are passed by value.
+// A lot of types that we've been using are structures, like Int, Bool, String, Array, and Dictionary
+ 
+// 5. What’s the difference between instance method and type method ?
+// 6. What does Initilizer do in class and struct ?
+// 7. What does self mean in an instance method and a type method ?
+// 8. What’s the difference between reference type and value type ?
 
 //Enumerations and Optionals in Swift
 
@@ -128,38 +137,47 @@ getRawValue(from: .oil95)
 class Pet {
     var name: String
     
-    init(name: String) {
+    init (name: String) {
       self.name = name
     }
 }
 
 class People {
-    //var a: Int? = 10
+    let owner: String
     var pet: String?
+    init (owner: String, pet: String? = nil){
+        self.owner = owner
+        self.pet = pet
+    }
+    
 }
 
-let lily = People()
 
-//func getMyPet() {
-//    guard let myPet = People() else {
-//        return
-//    }
-//
-//    print(myPet)
-//}
-//
-//getMyPet(lily)
+let lily = People(owner: "Lily", pet: "Mango")
+//let elephant = Elephant(animal: "elephant")
+//let cat = Animal(animal: "cat")
+//let zoo = Zoo(weeklyHot: cat)
 
-
-func getMeaningOfLife() -> Int? {
-    42
-}
-
-func printMeaningOfLife() {
-    guard let name = getMeaningOfLife() else {
+func getMyPet() {
+    guard let myPet = People() else {
         return
     }
 
-    print(name)
+    print(myPet)
 }
-printMeaningOfLife()
+
+getMyPet(lily)
+
+
+//func getMeaningOfLife() -> Int? {
+//    42
+//}
+//
+//func printMeaningOfLife() {
+//    guard let name = getMeaningOfLife() else {
+//        return
+//    }
+//
+//    print(name)
+//}
+//printMeaningOfLife()
