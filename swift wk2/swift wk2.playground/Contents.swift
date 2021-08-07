@@ -77,19 +77,32 @@ zoo.weeklyHot = horse
 
 
 //4. What’s the difference between Struct and Class ?
-
+//
 // A class is a blueprint or template for an instance of that class.
+// Classes do not come with synthesized memberwise initializers.
 // Classes support inheritance, whereas structures don't.
 // The inheritance design pattern is very important in object-oriented programming.
 //
-// In the above question, the Animal class is the parent or superclass of the class of Elephant, Tiger and Horse.
-// This means that the Elephant class inherits the properties and behavior of the Animal class. We initialize another animal instance, like tiger by invoking the custom initializer defined in the Animal class.
-
+// In the above question, the Animal class is the parent or superclass of class Elephant, class Tiger and class Horse.
+// This means that the Elephant class inherits the properties and behavior of the Animal class. We can initialize another animal instance, by invoking the custom initializer defined in the Animal class.
+//
 // Structures are value types, which means that they are passed by value.
-// A lot of types that we've been using are structures, like Int, Bool, String, Array, and Dictionary
- 
+// A lot of types that we've been using are structures, like Int, Bool, String, Array, and Dictionary.
+//
+//Other differernces of Structures and Classes are:
+//Structures instances are value types, Classes instances are reference types;
+//Structures instances are values, Classes instances are object with identity; Structures copy the value when used in new places, Classes share their data; Structures are immutable when they're ceclared as constants, while Class properties remain mutable.
+
+
 // 5. What’s the difference between instance method and type method ?
+
+// Methods are functions that are associated with a type. All methods are functions, but not all functions are methods.
+// We need an instance to execute an instance method, an instance method cannot be called on a type.
+
+// Sometimes there may be a function that's not specific to one instance of a class.  In this case, we can use a type method.  It is a method associated with the type, and not a specific instance. It only be called on the type that defines the type method.
+
 // 6. What does Initilizer do in class and struct ?
+
 // 7. What does self mean in an instance method and a type method ?
 // 8. What’s the difference between reference type and value type ?
 
@@ -120,6 +133,7 @@ func getRawValue(from oil: GasolineValue) {
 
 getRawValue(from: .oil95)
 
+//Please explain what enum associated value is and how it works.
 
 //enum values are themselves by defult.
 //However, it’s useful to be able to store values of other types alongside these case values. This additional information is called an associated value, and it varies each time you use that case as a value in your code.
@@ -149,24 +163,22 @@ class People {
         self.owner = owner
         self.pet = pet
     }
-    
+
 }
 
 
 let lily = People(owner: "Lily", pet: "Mango")
-//let elephant = Elephant(animal: "elephant")
-//let cat = Animal(animal: "cat")
-//let zoo = Zoo(weeklyHot: cat)
 
-func getMyPet() {
+
+func getMyPet(owner: String, pet: String?) {
     guard let myPet = People() else {
-        return
+        return nil
     }
 
     print(myPet)
 }
 
-getMyPet(lily)
+getMyPet(owner: "Lily", pet: "Mango")
 
 
 //func getMeaningOfLife() -> Int? {
