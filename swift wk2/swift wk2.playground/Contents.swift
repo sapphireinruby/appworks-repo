@@ -217,8 +217,18 @@ GasolineRawValue.oil98.rawValue //98
 //
 //getPriceTwo(from: .oildiesel) //10003
 
-
-
+//CaseIterable
+//enum someApp: String, CaseIterable {
+//    case facebook = "Don't really use it."
+//    case iweather = "Open it daily!"
+//    case googlemap = "Can't live without it."
+//}
+//
+//print(someApp.allCases.count) //3
+//
+//for app in someApp.allCases {
+//    print(app.rawValue)
+//}
 
 //Please explain what enum associated value is and how it works.
 
@@ -228,8 +238,7 @@ GasolineRawValue.oil98.rawValue //98
 
 
 //2.
-/*Declare a class Pet with name property and a class People with pet property which will store a Pet instance or nil.
- Please try to figure out what data type is suitable for these properties in Pet and People.*/
+/*Declare a class Pet with name property and a class People with pet property which will store a Pet instance or nil.*/
 
 class Pet {
     var name: String
@@ -239,8 +248,8 @@ class Pet {
     }
 }
 
-let myCat = Pet(name: "Nana")
-myCat.name //Nana
+//let myCat = Pet(name: "Nana")
+//myCat.name //Nana
 
 
 class People {
@@ -255,11 +264,11 @@ class People {
 
 let janeHasNoPet = People()
 
-janeHasNoPet.petName //nil
+// janeHasNoPet.petName //nil
 
 let lilyHasADogWonder = People(petName:"Wonder")
 
-lilyHasADogWonder.petName // Wonder
+// lilyHasADogWonder.petName // Wonder
 
 //● Please create a People instance and use guard let to unwrap the pet property.
  
@@ -295,45 +304,67 @@ if let pet = lilyHasADogWonder.petName {
     print("This person has a pet named \(pet)!")
 } else {
     print("This poor persone got no pet QQ")
-}
+} //This person has a pet named Wonder!
 
-//This person has a pet named Wonder!
+//The "guard let" assignement will be available for the rest of the function,while the "if let" assignment is only available within the "if let" statement.
 
-//the "guard let" assignement will be available for the rest of the function,
-//while the "if let" assignment is only available within the "if let" statement.
 
 // Protocol in Swift
  
 //1. Declare a struct Person with a name property type String and a protocol name PoliceMan. There is only one method arrestCriminals with no argument and return void in the protocol.
 // protocols: a common contract or a blue print
 
-struct Person {
-    var name: String
-}
 
 protocol PoliceMan
 {
-    func arrestCriminals() -> Void
+    func arrestCriminals() -> ()
 }
+
+//struct Person {
+//    var name: String
+//}
 
 
 //2. Make struct Person conform to PoliceMan protocol.
 
 //struct Person: PoliceMan {
-//    func arrestCriminals() {
-//        return ()
+//    func arrestCriminals() { // we can have anything here, but this func must have inside Person
 //    }
-//
-//    var name: String
 //}
 
-
-//Once a type implements all members of a protocol, the type is said to conform to the protocol. A type promises that everything the protocol declares inside of it, the type will have those things
-
+//Once a type implements all members of a protocol, the type is said to conform to the protocol. A type promises that everything the protocol declares inside of it, the type will have all those things
 
 
 //3. Declare a protocol ToolMan with a method fixComputer that has no argument and
 //return void.
+
+protocol ToolMan {
+    func fixComputer() -> ()
+}
+
+// Void is actually just a typealias for (). This means you could have written () -> Void as () -> ().
+// A function’s parameter list however must always be surrounded by parentheses, so Void -> () or Void -> Void are invalid.
+
 //4. Add a property toolMan to the struct Person with data type ToolMan.
+
+struct Person: PoliceMan {
+    var name: String
+    
+    var toolMan: Void
+    
+    func arrestCriminals() {
+    }
+}
+
+
 //5. Declare a struct named Engineer that conforms to the ToolMan protocol.
+
+struct Engineer: ToolMan {
+    func fixComputer() {}
+}
+
+
 //6. Create a Person instance with the name Steven and also create the relative data you need to declare this instance.
+
+let steven = Person(name: "Steven", toolMan: <#T##Void#>)
+
