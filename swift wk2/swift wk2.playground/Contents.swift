@@ -118,6 +118,9 @@ zoo.weeklyHot = horse
 // Unlike a struct, a class doesn’t provide a memberwise initializer automatically — which means we must provide it if we need it. Without providing an initializer, the Swift compiler will flag that as an error:
 
 // 7. What does self mean in an instance method and a type method ?
+
+
+
 // 8. What’s the difference between reference type and value type ?
 
 //Enumerations and Optionals in Swift
@@ -185,14 +188,14 @@ let lily = People(owner: "Lily", pet: "Mango")
 
 
 func getMyPet(owner: String, pet: String?) {
-    guard let myPet = People() else {
+    guard let myPet = People(pet: String?) else {
         return nil
     }
 
-    print(myPet)
+    print(Pet(name: String?))
 }
 
-getMyPet(owner: "Lily", pet: "Mango")
+getMyPet(owner: "lily", pet: "Mango")
 
 
 //func getMeaningOfLife() -> Int? {
@@ -207,3 +210,41 @@ getMyPet(owner: "Lily", pet: "Mango")
 //    print(name)
 //}
 //printMeaningOfLife()
+
+
+// Protocol in Swift
+
+ 
+//1. Declare a struct Person with a name property type String and a protocol name PoliceMan. There is only one method arrestCriminals with no argument and return void in the protocol.
+// protocols: a common contract or a blue print
+
+struct Person {
+    var name: String
+}
+
+protocol PoliceMan
+{
+    func arrestCriminals() -> Void
+}
+
+
+//2. Make struct Person conform to PoliceMan protocol.
+
+struct Person: PoliceMan {
+    func arrestCriminals() {
+        <#code#>
+    }
+    
+    var name: String
+}
+
+
+//Once a type implements all members of a protocol, the type is said to conform to the protocol. A type promises that everything the protocol declares inside of it, the type will have those things
+
+
+
+//3. Declare a protocol ToolMan with a method fixComputer that has no argument and
+//return void.
+//4. Add a property toolMan to the struct Person with data type ToolMan.
+//5. Declare a struct named Engineer that conforms to the ToolMan protocol.
+//6. Create a Person instance with the name Steven and also create the relative data you need to declare this instance.
