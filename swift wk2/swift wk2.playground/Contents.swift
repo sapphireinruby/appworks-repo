@@ -89,7 +89,7 @@ zoo.weeklyHot = horse
 // Structures are value types, which means that they are passed by value.
 // A lot of types that we've been using are structures, like Int, Bool, String, Array, and Dictionary.
 //
-//Other differernces of Structures and Classes are:
+//Some differernces of Structures and Classes are:
 //Structures instances are value types, Classes instances are reference types;
 //Structures instances are values, Classes instances are object with identity; Structures copy the value when used in new places, Classes share their data; Structures are immutable when they're ceclared as constants, while Class properties remain mutable.
 
@@ -121,34 +121,104 @@ zoo.weeklyHot = horse
 
 //self in the innt is to the class
 
+
 // 8. What’s the difference between reference type and value type ?
+
+//Copying a reference implicitly creates "a shared instance." After a copy, two variables then "refer to a single instance of the data", so modifying color in the second variable, the stolenMacBook also affects the original one.
+
+class MacBook {
+   
+   var year: Int
+   var color: String
+   
+   init(year: Int, color: String) {
+       self.year = year
+       self.color = color
+   }
+}
+
+
+let myMacBook = MacBook(year: 2019, color: "Space Grey")
+let stolenMacBook = myMacBook
+
+stolenMacBook.color = "Matte Black"
+print(myMacBook.color) //Matte Black
+
+//value type,on the other hand, is that "copying" the effect of assignment, initialization, and argument passing, creates an "independent instance" with its own unique copy of its data.
+
+struct iPhone {
+   var number: Int
+   var color: String
+}
+
+
+let myiPhone = iPhone(number: 7, color: "White")
+var stoleniPhone = myiPhone
+
+stoleniPhone.color = "Rose Gold"
+print(myiPhone.color) //White
+
+//The example above, when we declare the stoleniPhone, it's an independent instance. So whe we assign new color to it, the color of myiPhone remain the same.
+
 
 //Enumerations and Optionals in Swift
 
-//1
-
+//1.
+// create an enum named Gasoline to model gasoline
 enum Gasoline: String {
-    case oil92, oil95, oil98, oildiesel
+    case oil92
+    case oil95
+    case oil98
+    case oildiesel
 }
 
-enum GasolinePrice: Int {
-    case oil92 = 10, oil95, oil98, oildiesel
+// Every kind of gasoline has its price. Please create a method named getPrice in Gasoline enum that will return different prices depending on different gasoline.
+
+func getPrice(on oil: Gasoline){
+    switch oil {
+    
+    case .oil92:
+        print("oil92 is X price.")
+    case .oil95:
+        print("oil95 is X price.")
+    case .oil98:
+        print("oil98 is X price.")
+    case .oildiesel:
+        print("oildiesel is X price.")
+    }
 }
+getPrice(on: .oil95) //oil95 is X price.
 
-func getPrice(from oil: GasolinePrice) {
-    print(oil.rawValue)
-}
+/*Please establish raw values for Gasoline. The data type of raw value should be String. For example, Gasoline.oil92.rawValue should be "92" */
 
-getPrice(from: .oildiesel)
-
-enum GasolineValue: String {
+enum GasolineRawValue: String {
     case oil92 = "92", oil95 = "95", oil98 = "98", oildiesel = "diesel"
 }
-func getRawValue(from oil: GasolineValue) {
+
+func getRawValue(from oil: GasolineRawValue) {
     print(oil.rawValue)
 }
 
-getRawValue(from: .oil95)
+getRawValue(from: .oil92) //92
+
+GasolineRawValue.oil98.rawValue //98
+
+//Assigning raw Value with Int
+//
+//enum GasolinePrice: Int {
+//    case oil92 = 10_000, oil95, oil98, oildiesel
+//}
+// // 10_000 easier to read the numbers.
+// // Assign raw value, it's attching the value to the enum cases. Compiler will automatically increment the values if you provide the first one and leave out the rest
+//
+//func getPriceTwo(from oil: GasolinePrice) {
+//    print(oil.rawValue)
+//}
+//
+//getPriceTwo(from: .oildiesel) //10003
+
+
+
 
 //Please explain what enum associated value is and how it works.
 
@@ -229,6 +299,8 @@ if let pet = lilyHasADogWonder.petName {
 
 //This person has a pet named Wonder!
 
+//the "guard let" assignement will be available for the rest of the function,
+//while the "if let" assignment is only available within the "if let" statement.
 
 // Protocol in Swift
  
