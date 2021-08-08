@@ -190,59 +190,50 @@ let JaneHasNoPet = People()
 
 JaneHasNoPet.petName //nil
 
-let lilyhasAdogWonder = People(petName:"Wonder")
+let lilyHasADogWonder = People(petName:"Wonder")
 
-lilyhasAdogWonder.petName // Wonder
+lilyHasADogWonder.petName // Wonder
 
-//class People {
-//    let owner: String
-//    var pet: String?
-//    init (owner: String, pet: String? = nil){
-//        self.owner = owner
-//        self.pet = pet
-//    }
+//● Please create a People instance and use guard let to unwrap the pet property.
+ 
+func getPet(name: String?){
+    guard let petName = name else {
+        print("No pet to guard QQ")
+        return
+    }
+    print("This lucky man got a pet named \(petName)!")
+}
+
+getPet(name:JaneHasNoPet.petName) //No pet to guard QQ
+
+getPet(name:lilyHasADogWonder.petName) //This lucky man got a pet named Wonder
+
+//func guardMyCastle(name: String?) {
+//  guard let castleName = name else {
+//    print("No castle!")
+//    return
+//  }
 //
+//  // At this point, `castleName` is a non-optional String
+//
+//  print("Your castle called \(castleName) was guarded!")
 //}
 
 
+//● Please create another People instance and use if let to unwrap the pet property.
 
-/*● Please create a People instance and use guard let to unwrap the pet property.
-● Please create another People instance and use if let to unwrap the pet property.*/
+ // if let
 
+if let pet = lilyHasADogWonder.petName {
+    print("This person has a pet named \(pet)!")
+} else {
+    print("This poor persone got no pet QQ")
+}
 
-//let lily = People(owner: "Lily")
-//lily.pet //nil
-//
-//let amber = People(owner: "Amber", pet: "Nana")
-//amber.pet // Nana
-
-//func getMyPet(owner: String, pet: String?) {
-//    guard let myPet = People(pet: String?) else {
-//        return nil
-//    }
-//
-//    print(Pet(name: String?))
-//}
-
-
-
-
-//func getMeaningOfLife() -> Int? {
-//    42
-//}
-//
-//func printMeaningOfLife() {
-//    guard let name = getMeaningOfLife() else {
-//        return
-//    }
-//
-//    print(name)
-//}
-//printMeaningOfLife()
+//This person has a pet named Wonder!
 
 
 // Protocol in Swift
-
  
 //1. Declare a struct Person with a name property type String and a protocol name PoliceMan. There is only one method arrestCriminals with no argument and return void in the protocol.
 // protocols: a common contract or a blue print
