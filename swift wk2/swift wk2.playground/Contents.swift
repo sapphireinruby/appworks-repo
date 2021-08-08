@@ -158,10 +158,7 @@ getRawValue(from: .oil95)
 
 
 //2.
-/*2. Optional is a very special data type in Swift. Take var a: Int? = 10 for example, the value of a will be nil or Int. You should have learned how to deal with Optional.
- 
- ● People would like to have pets, but not everyone could have one.
- Declare a class Pet with name property and a class People with pet property which will store a Pet instance or nil.
+/*Declare a class Pet with name property and a class People with pet property which will store a Pet instance or nil.
  Please try to figure out what data type is suitable for these properties in Pet and People.*/
 
 class Pet {
@@ -186,9 +183,9 @@ class People {
     }
 }
 
-let JaneHasNoPet = People()
+let janeHasNoPet = People()
 
-JaneHasNoPet.petName //nil
+janeHasNoPet.petName //nil
 
 let lilyHasADogWonder = People(petName:"Wonder")
 
@@ -204,7 +201,7 @@ func getPet(name: String?){
     print("This lucky man got a pet named \(petName)!")
 }
 
-getPet(name:JaneHasNoPet.petName) //No pet to guard QQ
+getPet(name:janeHasNoPet.petName) //No pet to guard QQ
 
 getPet(name:lilyHasADogWonder.petName) //This lucky man got a pet named Wonder
 
