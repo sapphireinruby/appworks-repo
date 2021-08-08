@@ -29,7 +29,7 @@ class Animal {
 
 //2. Declare three classes: Elephant, Tiger, Horse that inherits from Animal and override the eat method to print what they usually eat.
 
-class Elephant : Animal{  // 冒號為父子關係, Animal is parent or superclass
+class Elephant : Animal{  // 冒號為父子關係, Elephant is the subclass of Animal; Animal is parent or superclass of Elephant
     override func eat() {
         print("I eat fruit!")
     }
@@ -119,7 +119,7 @@ zoo.weeklyHot = horse
 
 // 7. What does self mean in an instance method and a type method ?
 
-
+//self in the innt is to the class
 
 // 8. What’s the difference between reference type and value type ?
 
@@ -159,43 +159,72 @@ getRawValue(from: .oil95)
 
 //2.
 /*2. Optional is a very special data type in Swift. Take var a: Int? = 10 for example, the value of a will be nil or Int. You should have learned how to deal with Optional.
+ 
  ● People would like to have pets, but not everyone could have one.
  Declare a class Pet with name property and a class People with pet property which will store a Pet instance or nil.
- Please try to figure out what data type is suitable for these properties in Pet and People.
- ● Please create a People instance and use guard let to unwrap the pet property.
- ● Please create another People instance and use if let to unwrap the pet property.*/
+ Please try to figure out what data type is suitable for these properties in Pet and People.*/
 
 class Pet {
     var name: String
     
-    init (name: String) {
+    init(name: String) {
       self.name = name
     }
 }
 
+let myCat = Pet(name: "Nana")
+myCat.name //Nana
+
+
 class People {
-    let owner: String
-    var pet: String?
-    init (owner: String, pet: String? = nil){
-        self.owner = owner
-        self.pet = pet
+    var petName: String?
+    
+    init() {}
+    
+    init(petName: String){
+        self.petName = petName
     }
-
 }
 
+let JaneHasNoPet = People()
 
-let lily = People(owner: "Lily", pet: "Mango")
+JaneHasNoPet.petName //nil
+
+let lilyhasAdogWonder = People(petName:"Wonder")
+
+lilyhasAdogWonder.petName // Wonder
+
+//class People {
+//    let owner: String
+//    var pet: String?
+//    init (owner: String, pet: String? = nil){
+//        self.owner = owner
+//        self.pet = pet
+//    }
+//
+//}
 
 
-func getMyPet(owner: String, pet: String?) {
-    guard let myPet = People(pet: String?) else {
-        return nil
-    }
 
-    print(Pet(name: String?))
-}
+/*● Please create a People instance and use guard let to unwrap the pet property.
+● Please create another People instance and use if let to unwrap the pet property.*/
 
-getMyPet(owner: "lily", pet: "Mango")
+
+//let lily = People(owner: "Lily")
+//lily.pet //nil
+//
+//let amber = People(owner: "Amber", pet: "Nana")
+//amber.pet // Nana
+
+//func getMyPet(owner: String, pet: String?) {
+//    guard let myPet = People(pet: String?) else {
+//        return nil
+//    }
+//
+//    print(Pet(name: String?))
+//}
+
+
 
 
 //func getMeaningOfLife() -> Int? {
@@ -230,13 +259,13 @@ protocol PoliceMan
 
 //2. Make struct Person conform to PoliceMan protocol.
 
-struct Person: PoliceMan {
-    func arrestCriminals() {
-        <#code#>
-    }
-    
-    var name: String
-}
+//struct Person: PoliceMan {
+//    func arrestCriminals() {
+//        return ()
+//    }
+//
+//    var name: String
+//}
 
 
 //Once a type implements all members of a protocol, the type is said to conform to the protocol. A type promises that everything the protocol declares inside of it, the type will have those things
