@@ -199,9 +199,9 @@ func getRawValue(from oil: GasolineRawValue) {
     print(oil.rawValue)
 }
 
-getRawValue(from: .oil92) //92
+// Run: getRawValue(from: .oil92) //92
 
-GasolineRawValue.oil98.rawValue //98
+// Run: GasolineRawValue.oil98.rawValue //98
 
 //Assigning raw Value with Int
 //
@@ -366,5 +366,37 @@ struct Engineer: ToolMan {
 
 //6. Create a Person instance with the name Steven and also create the relative data you need to declare this instance.
 
-let steven = Person(name: "Steven", toolMan: <#T##Void#>)
+let steven = Person(name: "Steven", toolMan: ())
 
+
+//Error Handling in Swift
+
+ 
+enum GuessNumberGameError: Error {
+    case wrongNumber
+}
+class GuessNumerGame {
+    var targetNumber = 10
+    
+    func guess(number: Int) throws {
+        
+        guard number == targetNumber else {
+            throw GuessNumberGameError.wrongNumber
+        }
+        do {
+            try guess(number: 20)
+        } catch GuessNumberGameError.wrongNumber {
+            print("Sorry, it's not the right number.")
+        }
+        print("Guess the right number: \(targetNumber)")
+    }
+    
+
+}
+  
+let x = GuessNumerGame()
+
+
+
+
+//Read the code above first and paste it in the playground file, there is an error inside the code. Please solve the error by adding additional code in the file. Do not remove or modify the code above. Call guess(number:) and pass 20 as the argument after you fix the problem.
