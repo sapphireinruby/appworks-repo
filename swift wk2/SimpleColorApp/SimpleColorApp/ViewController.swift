@@ -39,7 +39,9 @@ class ViewController: UIViewController {
         //self.view.backgroundColor = UIColor(hex: rainbowArr[ind])
         
         bgColor.backgroundColor = UIColor(hex: rainbowArr[ind])
-        //showAnotherFactButton.titleColor(for: <#T##UIControl.State#>)
+        showAnotherFactButton.setTitleColor(UIColor(hex: rainbowArr[ind]), for: .normal)
+        
+        
         print (rainbowArr[ind])
         
     }
