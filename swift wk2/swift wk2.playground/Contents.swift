@@ -349,7 +349,7 @@ protocol PoliceMan
 //2. Make struct Person conform to PoliceMan protocol.
 
 //struct Person: PoliceMan {
-//    func arrestCriminals() { // we can have anything here, but this func must have inside Person
+//    func arrestCriminals() { // we can have anything here, but this func must be inside Person
 //    }
 //}
 
@@ -387,7 +387,7 @@ struct Engineer: ToolMan {
 
 //6. Create a Person instance with the name Steven and also create the relative data you need to declare this instance.
 
-let steven = Person(name: "Steven", toolMan: ToolMan.self as! ToolMan)
+let steven = Person(name: "Steve", toolMan: ToolMan.self as! ToolMan)
 
 
 //Error Handling in Swift
