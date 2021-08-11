@@ -149,14 +149,14 @@ zoo.weeklyHot = horse
 
 //In the other hand, "self" refers to a type (rather than to an instance) when used in a type method. It’s often a placeholder for another type, like Self.Element in an array of integer numbers, or the example below.
 
-struct Const {
-  static let minLimit = 0
-  static let maxLimit = 250
-  static func getLimitRange() -> ClosedRange<Int> {
-    return self.minLimit...self.maxLimit
-  }
-}
-print(Const.getLimitRange()) // => 0...250
+//struct Const {
+//  static let minLimit = 0
+//  static let maxLimit = 250
+//  static func getLimitRange() -> ClosedRange<Int> {
+//    return self.minLimit...self.maxLimit
+//  }
+//}
+//print(Const.getLimitRange()) // => 0...250
 
 
 // 8. What’s the difference between reference type and value type ?
@@ -202,43 +202,40 @@ print(myiPhone.color) //White
 
 //1.
 // create an enum named Gasoline to model gasoline
-enum Gasoline: String {
-    case oil92
-    case oil95
-    case oil98
-    case oildiesel
-}
+
+//enum Gasoline: String {
+//    case oil92
+//    case oil95
+//    case oil98
+//    case oildiesel
+//}
 
 // Every kind of gasoline has its price. Please create a method named getPrice in Gasoline enum that will return different prices depending on different gasoline.
 
-func getPrice(on oil: Gasoline){
-    switch oil {
-    
-    case .oil92:
-        print("oil92 is X price.")
-    case .oil95:
-        print("oil95 is X price.")
-    case .oil98:
-        print("oil98 is X price.")
-    case .oildiesel:
-        print("oildiesel is X price.")
-    }
-}
-getPrice(on: .oil95) //oil95 is X price.
+//enum Gasoline: CaseIterable {
+//    case oil92
+//    case oil95
+//    case oil98
+//    case oildiesel
+//}
+//
+//for gas in Gasoline.allCases {
+//    print(gas)
+//}
 
 /*Please establish raw values for Gasoline. The data type of raw value should be String. For example, Gasoline.oil92.rawValue should be "92" */
 
-enum GasolineRawValue: String {
+enum Gasoline: String {
     case oil92 = "92", oil95 = "95", oil98 = "98", oildiesel = "diesel"
 }
 
-func getRawValue(from oil: GasolineRawValue) {
-    print(oil.rawValue)
-}
+//func getRawValue(from gas: Gasoline) {
+//    print(gas.rawValue)
+//}
 
-// Run: getRawValue(from: .oil92) //92
+// test run:getRawValue(from: .oil92) //92
 
-// Run: GasolineRawValue.oil98.rawValue //98
+// test run: GasolineRawValue.oil98.rawValue //98
 
 //Assigning raw Value with Int
 //
