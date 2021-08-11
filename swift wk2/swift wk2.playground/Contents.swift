@@ -8,6 +8,12 @@ var greeting = "Hello, playground"
 //1. Declare a class Animal with property gender and method eat(). The data type of gender should be enum Gender as below and when you call eat() method, it will print
 //I eat everything!
 
+enum Gender {
+    case male
+    case female
+    case undefined
+    }
+
 class Animal {
     let gender: Gender
     let animal: String
@@ -16,12 +22,6 @@ class Animal {
         self.animal = animal
         self.gender = gender
     }
-    
-    enum Gender {
-        case male
-        case female
-        case undefined
-        }
     
     func eat(){
         print("I eat everything!")
@@ -67,9 +67,9 @@ class Zoo {
     }
 }
 
-let elephant = Elephant(gender: male, animal: "elephant")
-let tiger = Tiger(gender: female, animal: "tiger") // 冒號為 key: value關係
-let horse = Horse(gender: undefined, animal: "horse")
+let elephant = Elephant(gender: Gender.male, animal: "elephant")
+let tiger = Tiger(gender: Gender.female, animal: "tiger") // 冒號為 key: value關係
+let horse = Horse(gender: Gender.undefined, animal: "horse")
 
 //let cat = Animal(animal: "cat")
 //let zoo = Zoo(weeklyHot: cat)
