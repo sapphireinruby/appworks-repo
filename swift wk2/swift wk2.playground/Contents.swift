@@ -8,18 +8,21 @@ var greeting = "Hello, playground"
 //1. Declare a class Animal with property gender and method eat(). The data type of gender should be enum Gender as below and when you call eat() method, it will print
 //I eat everything!
 
+enum Gender {
+    case male
+    case female
+    case undefined
+    }
+
 
 class Animal {
+    let gender: Gender
     let animal: String // or let animalName: String
     
-    enum Gender {
-        case male
-        case female
-        case undefined
-        }
     
-    init(animal : String){
+    init(gender: Gender, animal : String){
         self.animal = animal
+        self.gender = gender
     }
     
     func eat(){
@@ -34,11 +37,13 @@ class Elephant : Animal{  // 冒號為父子關係, Elephant is the subclass of 
         print("I eat fruit!")
     }
 }
+
 class Tiger : Animal{
     override func eat() {
         print("I eat other animals!")
     }
 }
+
 class Horse : Animal{
     override func eat() {
         print("I eat grass!")
@@ -64,12 +69,13 @@ class Zoo {
     }
 }
 
-let elephant = Elephant(animal: "elephant")
-let tiger = Tiger(animal: "tiger") // 冒號為 key: value關係
-let horse = Horse(animal: "horse")
+let elephant = Elephant(gender: male, animal: "elephant")
+let tiger = Tiger(gender: female, animal: "tiger") // 冒號為 key: value關係
+let horse = Horse(gender: undefined, animal: "horse")
+
 //let cat = Animal(animal: "cat")
-//
 //let zoo = Zoo(weeklyHot: cat)
+
 let zoo = Zoo(weeklyHot: tiger)
 zoo.weeklyHot = tiger
 zoo.weeklyHot = elephant
@@ -119,7 +125,8 @@ zoo.weeklyHot = horse
 
 // 7. What does self mean in an instance method and a type method ?
 
-//self in the innt is to the class
+//"Self" can access instance properties and methods.
+//self inside "init" and isDayForWalk() is the current instance of Weather structure. It allows to set and access the structure properties self.windSpeed and self.chanceOfRain.
 
 
 // 8. What’s the difference between reference type and value type ?
@@ -217,18 +224,6 @@ func getRawValue(from oil: GasolineRawValue) {
 //
 //getPriceTwo(from: .oildiesel) //10003
 
-//CaseIterable
-//enum someApp: String, CaseIterable {
-//    case facebook = "Don't really use it."
-//    case iweather = "Open it daily!"
-//    case googlemap = "Can't live without it."
-//}
-//
-//print(someApp.allCases.count) //3
-//
-//for app in someApp.allCases {
-//    print(app.rawValue)
-//}
 
 //Please explain what enum associated value is and how it works.
 
@@ -253,12 +248,12 @@ class Pet {
 
 
 class People {
-    var petName: String?
+    var pet: String?
     
     init() {}
     
-    init(petName: String){
-        self.petName = petName
+    init(pet: String){
+        self.pet = pet
     }
 }
 
@@ -266,23 +261,23 @@ let janeHasNoPet = People()
 
 // janeHasNoPet.petName //nil
 
-let lilyHasADogWonder = People(petName:"Wonder")
+let lilyHasADogWonder = People(pet:"Wonder")
 
 // lilyHasADogWonder.petName // Wonder
 
 //● Please create a People instance and use guard let to unwrap the pet property.
  
 func getPet(name: String?){
-    guard let petName = name else {
+    guard let pet = name else {
         print("No pet to guard QQ")
         return
     }
-    print("This lucky man got a pet named \(petName)!")
+    print("This lucky man got a pet named \(pet)!")
 }
 
-getPet(name:janeHasNoPet.petName) //No pet to guard QQ
+getPet(name:janeHasNoPet.pet) //No pet to guard QQ
 
-getPet(name:lilyHasADogWonder.petName) //This lucky man got a pet named Wonder
+getPet(name:lilyHasADogWonder.pet) //This lucky man got a pet named Wonder
 
 //func guardMyCastle(name: String?) {
 //  guard let castleName = name else {
@@ -300,7 +295,7 @@ getPet(name:lilyHasADogWonder.petName) //This lucky man got a pet named Wonder
 
  // if let
 
-if let pet = lilyHasADogWonder.petName {
+if let pet = lilyHasADogWonder.pet {
     print("This person has a pet named \(pet)!")
 } else {
     print("This poor persone got no pet QQ")
@@ -350,7 +345,7 @@ protocol ToolMan {
 struct Person: PoliceMan {
     var name: String
     
-    var toolMan: Void
+    var toolMan: ToolMan
     
     func arrestCriminals() {
     }
@@ -366,7 +361,7 @@ struct Engineer: ToolMan {
 
 //6. Create a Person instance with the name Steven and also create the relative data you need to declare this instance.
 
-let steven = Person(name: "Steven", toolMan: ())
+let steven = Person(name: "Steven", toolMan: ToolMan.self as! ToolMan)
 
 
 //Error Handling in Swift
