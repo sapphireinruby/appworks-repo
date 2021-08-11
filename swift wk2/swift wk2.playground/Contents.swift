@@ -8,22 +8,20 @@ var greeting = "Hello, playground"
 //1. Declare a class Animal with property gender and method eat(). The data type of gender should be enum Gender as below and when you call eat() method, it will print
 //I eat everything!
 
-enum Gender {
-    case male
-    case female
-    case undefined
-    }
-
-
 class Animal {
     let gender: Gender
-    let animal: String // or let animalName: String
-    
+    let animal: String
     
     init(gender: Gender, animal : String){
         self.animal = animal
         self.gender = gender
     }
+    
+    enum Gender {
+        case male
+        case female
+        case undefined
+        }
     
     func eat(){
         print("I eat everything!")
@@ -101,10 +99,10 @@ zoo.weeklyHot = horse
 
 
 // 5. What’s the difference between instance method and type method ?
-
+//
 // Methods are functions that are associated with a type. All methods are functions, but not all functions are methods.
 // We need an instance to execute an instance method, an instance method cannot be called on a type.
-
+//
 // Sometimes there may be a function that's not specific to one instance of a class.  In this case, we can use a type method.  It is a method associated with the type, and not a specific instance. It only be called on the type that defines the type method.
 
 
@@ -125,8 +123,40 @@ zoo.weeklyHot = horse
 
 // 7. What does self mean in an instance method and a type method ?
 
-//"Self" can access instance properties and methods.
-//self inside "init" and isDayForWalk() is the current instance of Weather structure. It allows to set and access the structure properties self.windSpeed and self.chanceOfRain.
+// "self" is a reference to the current object (“instance”) of a class (or struct), within that class. It can access instance properties and methods.
+// This “self” written with in lowercase, and it’s generally followed by a dot and a property or function name.
+
+//struct Weather {
+//
+//  let speedOfWind: Int
+//  let chanceRaining: Int
+//
+//  init(speedOfWind: Int, chanceOfRain: Int) {
+//    self.speedOfWind = speedOfWind
+//    self.chanceRaining = chanceRaining
+//  }
+//
+//  func isDayForWalk() -> Bool {
+//    let comfortableSpeedOfWind = 5
+//    let acceptableChanceRaining = 30
+//    return self.windSpeed <= comfortableSpeedOfWind
+//      && self.chanceRainingn <= acceptablechanceRaining
+//  }
+//
+//}
+
+//The example above, "self" property inside init(speedOfWind, chanceRaining) and isDayForWalk() is the current instance of this Weather structure. It allows to set and access the structure properties self.speedOfWind and self.chanceRaining.
+
+//In the other hand, "self" refers to a type (rather than to an instance) when used in a type method. It’s often a placeholder for another type, like Self.Element in an array of integer numbers, or the example below.
+
+struct Const {
+  static let minLimit = 0
+  static let maxLimit = 250
+  static func getLimitRange() -> ClosedRange<Int> {
+    return self.minLimit...self.maxLimit
+  }
+}
+print(Const.getLimitRange()) // => 0...250
 
 
 // 8. What’s the difference between reference type and value type ?
