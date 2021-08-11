@@ -212,28 +212,46 @@ print(myiPhone.color) //White
 
 
 // Every kind of gasoline has its price. Please create a method named getPrice in Gasoline enum that will return different prices depending on different gasoline.
+//
+//enum Gasoline {
+//    case oil92
+//    case oil95
+//    case oil98
+//    case oildiesel
+//
+//    func getPrice() -> Int {
+//
+//        switch self {
+//        case .oil92:
+//            return 100
+//        case .oil95:
+//            return 200
+//        case .oil98:
+//            return 300
+//        case .oildiesel:
+//            return 400
+//        }
+//
+//    }
+//
+//}
 
-enum Gasoline {
-    case oil92
-    case oil95
-    case oil98
-    case oildiesel
-    
-    }
 
+//let test = Gasoline.oil92.getPrice()
+//print(test) //100
 
 
 /*Please establish raw values for Gasoline. The data type of raw value should be String. For example, Gasoline.oil92.rawValue should be "92" */
 
-//enum Gasoline: String {
-//    case oil92 = "92", oil95 = "95", oil98 = "98", oildiesel = "diesel"
-//}
-//
-//print (Gasoline.oil92.rawValue)
+enum Gasoline: String {
+    case oil92 = "92", oil95 = "95", oil98 = "98", oildiesel = "diesel"
+}
 
-//func getRawValue(from gas: Gasoline) {
-//    print(gas.rawValue)
-//}
+print (Gasoline.oil92.rawValue)
+
+func getRawValue(from gas: Gasoline) {
+    print(gas.rawValue)
+}
 
 // test run:getRawValue(from: .oil92) //92
 
@@ -410,3 +428,4 @@ do {
 } catch {
     print("Sorry, it's not the right number.")
 }
+
