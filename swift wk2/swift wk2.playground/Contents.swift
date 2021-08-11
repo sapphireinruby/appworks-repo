@@ -210,24 +210,26 @@ print(myiPhone.color) //White
 //    case oildiesel
 //}
 
+
 // Every kind of gasoline has its price. Please create a method named getPrice in Gasoline enum that will return different prices depending on different gasoline.
 
-//enum Gasoline: CaseIterable {
-//    case oil92
-//    case oil95
-//    case oil98
-//    case oildiesel
-//}
-//
-//for gas in Gasoline.allCases {
-//    print(gas)
-//}
+enum Gasoline {
+    case oil92
+    case oil95
+    case oil98
+    case oildiesel
+    
+    }
+
+
 
 /*Please establish raw values for Gasoline. The data type of raw value should be String. For example, Gasoline.oil92.rawValue should be "92" */
 
-enum Gasoline: String {
-    case oil92 = "92", oil95 = "95", oil98 = "98", oildiesel = "diesel"
-}
+//enum Gasoline: String {
+//    case oil92 = "92", oil95 = "95", oil98 = "98", oildiesel = "diesel"
+//}
+//
+//print (Gasoline.oil92.rawValue)
 
 //func getRawValue(from gas: Gasoline) {
 //    print(gas.rawValue)
@@ -275,58 +277,49 @@ class Pet {
 
 
 class People {
-    var pet: String? //either with data type String, or nil
     
-    init() {} // init for nil
-    
-    init(pet: String){
+    var pet: Pet?
+    init(pet: Pet){
         self.pet = pet
     }
+    
+    init(){} // init for nil
 }
 
-let janeHasNoPet = People()
 
-// janeHasNoPet.petName //nil
+// Please create a People instance and use guard let to unwrap the pet property.
 
-let lilyHasADogWonder = People(pet:"Wonder")
+var puppy = Pet(name: "Lucky")
+//puppy.name //Lucky
 
-// lilyHasADogWonder.petName // Wonder
+var ladyM = People(pet: puppy)
+ladyM.pet //Pet
 
-//● Please create a People instance and use guard let to unwrap the pet property.
- 
-func getPet(name: String?){
-    guard let pet = name else {
+
+func getPet(pet: Pet?){
+    guard let pet = pet else {
         print("No pet to guard QQ")
         return
     }
-    print("This lucky man got a pet named \(pet)!")
+    print("This lucky person got a pet, named\(pet.name)!")
 }
 
-getPet(name:janeHasNoPet.pet) //No pet to guard QQ
-
-getPet(name:lilyHasADogWonder.pet) //This lucky man got a pet named Wonder
-
-//func guardMyCastle(name: String?) {
-//  guard let castleName = name else {
-//    print("No castle!")
-//    return
-//  }
-//
-//  // At this point, `castleName` is a non-optional String
-//
-//  print("Your castle called \(castleName) was guarded!")
-//}
+// getPet(pet: ladyM.pet)  //This lucky person got a pet, Lucky!
 
 
-//● Please create another People instance and use if let to unwrap the pet property.
+
+
+
+
+// Please create another People instance and use if let to unwrap the pet property.
 
  // if let
 
-if let pet = lilyHasADogWonder.pet {
-    print("This person has a pet named \(pet)!")
-} else {
-    print("This poor persone got no pet QQ")
-} //This person has a pet named Wonder!
+//if let pet = lilyHasADogWonder.pet {
+//    print("This person has a pet named \(pet)!")
+//} else {
+//    print("This poor persone got no pet QQ")
+//} //This person has a pet named Wonder!
 
 //The "guard let" assignement will be available for the rest of the function,while the "if let" assignment is only available within the "if let" statement.
 
