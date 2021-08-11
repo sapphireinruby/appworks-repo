@@ -275,9 +275,9 @@ class Pet {
 
 
 class People {
-    var pet: String?
+    var pet: String? //either with data type String, or nil
     
-    init() {}
+    init() {} // init for nil
     
     init(pet: String){
         self.pet = pet
