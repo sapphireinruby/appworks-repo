@@ -15,7 +15,7 @@ enum Gender {
     }
 
 class Animal {
-    let gender: Gender
+    let gender: Gender   //An enumeration is a list of mutually exclusive cases that define a common type.
     let animal: String
     
     init(gender: Gender, animal : String){
@@ -387,7 +387,10 @@ struct Engineer: ToolMan {
 
 //6. Create a Person instance with the name Steven and also create the relative data you need to declare this instance.
 
-let steven = Person(name: "Steve", toolMan: ToolMan.self as! ToolMan)
+let steven = Person(name: "Steven", toolMan: ToolMan.self as! ToolMan)
+
+//Need to study more about how "Protocols" adopted by both value types (structs and enums) and reference types (classes). If there's an instance of a class or struct assigned to a variable of a protocol type, it will express value or reference semantics that match the type it was defined as.
+
 
 
 //Error Handling in Swift
