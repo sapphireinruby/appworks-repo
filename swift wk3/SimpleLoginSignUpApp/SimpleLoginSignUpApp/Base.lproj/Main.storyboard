@@ -126,6 +126,11 @@
                             <constraint firstItem="iW0-Rd-rDK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xdM-2G-JaN"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="accountTextField" destination="LGp-Na-MWG" id="TeQ-ff-vZi"/>
+                        <outlet property="checkTextField" destination="BEq-Uh-S2x" id="ykH-kZ-F50"/>
+                        <outlet property="passwordTextField" destination="mlc-3e-vd9" id="eWm-BN-p79"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
