@@ -24,6 +24,7 @@
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="acT-E1-XSZ">
                                 <rect key="frame" x="120" y="242" width="150" height="32"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="Mxe-wT-nxf"/>
                                 </constraints>
@@ -31,6 +32,10 @@
                                     <segment title="Log In"/>
                                     <segment title="Sing Up"/>
                                 </segments>
+                                <color key="selectedSegmentTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="inputTypeSegment:" destination="BYZ-38-t0r" eventType="valueChanged" id="6cL-S6-Lce"/>
+                                </connections>
                             </segmentedControl>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-Rd-rDK">
                                 <rect key="frame" x="67.666666666666686" y="313" width="255" height="125"/>
@@ -129,6 +134,7 @@
                     <connections>
                         <outlet property="accountTextField" destination="LGp-Na-MWG" id="TeQ-ff-vZi"/>
                         <outlet property="checkTextField" destination="BEq-Uh-S2x" id="ykH-kZ-F50"/>
+                        <outlet property="checkTextLabel" destination="huW-Co-q7A" id="T3O-fx-GQJ"/>
                         <outlet property="passwordTextField" destination="mlc-3e-vd9" id="eWm-BN-p79"/>
                     </connections>
                 </viewController>
