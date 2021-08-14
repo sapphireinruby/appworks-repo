@@ -8,6 +8,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
     @IBOutlet weak var accountTextField: UITextField!
     
@@ -20,9 +21,11 @@ class ViewController: UIViewController {
     @IBAction func inputTypeSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
-            checkTextField.isUserInteractionEnabled = false;
+            checkTextField.isUserInteractionEnabled = false
             checkTextField.backgroundColor = .gray
             checkTextLabel.textColor = .gray
+        case 1:
+            checkTextField.isUserInteractionEnabled = true
         default:
             checkTextField.isUserInteractionEnabled = true
         }
@@ -31,7 +34,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        UISegmentedControl.appearance().selectedSegmentTintColor = .black
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
+        UISegmentedControl.appearance().backgroundColor = .white
+        UISegmentedControl.appearance().tintColor = .red
     }
 
 
