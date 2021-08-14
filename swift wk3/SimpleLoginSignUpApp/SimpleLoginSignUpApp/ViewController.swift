@@ -36,6 +36,8 @@ class ViewController: UIViewController {
     }
     
     
+
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -46,9 +48,27 @@ class ViewController: UIViewController {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal) //normal or unselected text color
         
         UISegmentedControl.appearance().backgroundColor = .white //the whole "bar" background
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap) // tapping elasewhere on the view controller to dismiss the keyboard
 
     }
-
-
+    
+    
 }
 
+extension UIView {
+    func hideKeyboard() {
+        let resign = #selector(UIResponder.resignFirstResponder)
+        UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
+    }
+}
+
+//extension ViewController: UITextFieldDelegate {
+//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+//        textField.resignFirstResponder()
+//
+//        return true
+//
+//    }
+//}
