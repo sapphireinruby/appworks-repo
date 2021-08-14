@@ -137,7 +137,6 @@
                     <connections>
                         <outlet property="accountTextField" destination="LGp-Na-MWG" id="TeQ-ff-vZi"/>
                         <outlet property="checkTextField" destination="BEq-Uh-S2x" id="ykH-kZ-F50"/>
-                        <outlet property="checkTextLabel" destination="huW-Co-q7A" id="T3O-fx-GQJ"/>
                         <outlet property="passwordTextField" destination="mlc-3e-vd9" id="eWm-BN-p79"/>
                     </connections>
                 </viewController>
