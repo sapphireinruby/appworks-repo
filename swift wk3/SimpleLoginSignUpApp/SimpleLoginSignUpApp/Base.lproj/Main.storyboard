@@ -136,6 +136,7 @@
                     </view>
                     <connections>
                         <outlet property="accountTextField" destination="LGp-Na-MWG" id="TeQ-ff-vZi"/>
+                        <outlet property="changeTextLabel" destination="huW-Co-q7A" id="zgH-S3-7Wq"/>
                         <outlet property="checkTextField" destination="BEq-Uh-S2x" id="ykH-kZ-F50"/>
                         <outlet property="passwordTextField" destination="mlc-3e-vd9" id="eWm-BN-p79"/>
                     </connections>
