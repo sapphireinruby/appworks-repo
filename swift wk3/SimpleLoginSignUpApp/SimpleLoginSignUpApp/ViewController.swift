@@ -9,6 +9,7 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var checkTextField: UITextField!
     
+    @IBOutlet weak var changeTextLabel: UILabel!
     
     override func viewDidLoad() {
         
@@ -26,7 +27,7 @@ class ViewController: UIViewController {
         
         checkTextField.isUserInteractionEnabled = false
         checkTextField.backgroundColor = .gray
-        checkTextLabel.textColor = .gray
+        checkTextField.backgroundC = 
     }
     
     @IBAction func inputTypeSegment(_ sender: UISegmentedControl) {
