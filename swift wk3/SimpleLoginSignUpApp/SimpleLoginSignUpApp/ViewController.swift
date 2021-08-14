@@ -50,38 +50,41 @@ class ViewController: UIViewController {
         return nil
     } // check if the text field are filled in
     
+    func onlyUserLogIn() -> Bool {
+        if accountTextField.text == "appworks" {
+            return true
+        }
+        return false
+    }
     
     @IBAction func processButton(_ sender: UIButton) {
         let errorField = validateField()
-        if errorField == "Account" {
-            let alert = UIAlertController(title: "Error", message: "Account should not be empty.", preferredStyle: .alert)
+        if errorField != nil {
+            let alert = UIAlertController(title: "Error", message: "\(errorField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
             
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
-        } else if errorField == "Password" {
-            let alert = UIAlertController(title: "Error", message: "Password should not be empty.", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-            })
-            alert.addAction(action)
-            present(alert, animated:  true)
-        } else if errorField == "Check" {
-            let alert = UIAlertController(title: "Error", message: "Check should not be empty.", preferredStyle: .alert)
-            
-            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-            })
-            alert.addAction(action)
-            present(alert, animated:  true)
+//        } else if errorField == "Password" {
+//            let alert = UIAlertController(title: "Error", message: "Password should not be empty.", preferredStyle: .alert)
+//
+//            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+//            })
+//            alert.addAction(action)
+//            present(alert, animated:  true)
+//        } else if errorField == "Check" {
+//            let alert = UIAlertController(title: "Error", message: "Check should not be empty.", preferredStyle: .alert)
+//
+//            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+//            })
+//            alert.addAction(action)
+//            present(alert, animated:  true)
         }
-    }
+    } // Show error msg for each empty fields
     
 
 
-    
-
-    
     
     override func viewDidLoad() {
         
