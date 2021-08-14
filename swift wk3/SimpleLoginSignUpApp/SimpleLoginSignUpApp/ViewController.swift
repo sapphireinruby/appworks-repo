@@ -9,7 +9,9 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var checkTextField: UITextField!
     
-    @IBOutlet weak var changeTextLabel: UILabel!
+    @IBOutlet weak var checkTextLabel: UILabel!
+    
+    @IBOutlet weak var inputType: UISegmentedControl!
     
     override func viewDidLoad() {
         
@@ -27,7 +29,7 @@ class ViewController: UIViewController {
         
         checkTextField.isUserInteractionEnabled = false
         checkTextField.backgroundColor = .gray
-        checkTextField.backgroundC = 
+        checkTextLabel.textColor = .gray
     }
     
     @IBAction func inputTypeSegment(_ sender: UISegmentedControl) {
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
             checkTextField.isUserInteractionEnabled = false
             checkTextField.backgroundColor = .gray
             checkTextLabel.textColor = .gray
-            
+
         } else if sender.selectedSegmentIndex == 1 {
             checkTextField.isUserInteractionEnabled = true
             checkTextField.backgroundColor = .white
@@ -54,32 +56,64 @@ class ViewController: UIViewController {
         } else if checkTextField.text?.trimmingCharacters(in:  .whitespacesAndNewlines) == "" {
             return "Check"
         }
-        return nil
-    } // check if the text field are filled in
+        return nil //nil is all good, means all text fields are filled in!
+    } // check if the text field are filled in and return the empty text field
     
+
+
     func onlyUserLogIn() -> Bool {
-        if accountTextField.text == "appworks_school@gmail.com" && passwordTextField.text == "1234" && inputTypeSegment(<#T##sender: UISegmentedControl##UISegmentedControl#>) {
+        
+        if inputType.selectedSegmentIndex == 0 &&
+            accountTextField.text == "appworks_school@gmail.com" && passwordTextField.text == "1234" && checkTextField.text == "" {
             return true
         }
         return false
     } //check if the log in info. is correct
     
+    
+    func newSignUp() -> Bool {
+        if inputType.selectedSegmentIndex == 1 && passwordTextField.text == checkTextField.text{
+            return true
+        }
+        return false
+    } //check sign in passwords
+    
+    
     @IBAction func processButton(_ sender: UIButton) {
         let rightUser = onlyUserLogIn()
-        print(onlyUserLogIn())
-        
         let emptyField = validateField()
+        let matchingPasswords = checkPassword()
         
-        if rightUser == false {
+        //successful log in condiction
+        if rightUser == true {
+            let alert = UIAlertController(title: "Welcome", message: "Log in successful.", preferredStyle: .alert) // worng log in information
+
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } //successful log in condiction
+        
+        if matchingPasswords == true && emptyField == nil {
+            let alert = UIAlertController(title: "Thank you", message: "Sign Up successful.", preferredStyle: .alert)
+
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        }//successful Sign Up condiction
+        
+        
+        if  rightUser == false && emptyField == nil {
             let alert = UIAlertController(title: "Error", message: "Login fail.", preferredStyle: .alert) // worng log in information
-            
+
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
         } // check if log in info is correct
         
-        if emptyField != nil {
+        if emptyField != nil && rightUser != true {
             let alert = UIAlertController(title: "Error", message: "\(emptyField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
             
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -99,12 +133,3 @@ extension UIView {
         UIApplication.shared.sendAction(resign, to: nil, from: nil, for: nil)
     }
 }
-
-//extension ViewController: UITextFieldDelegate {
-//    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-//        textField.resignFirstResponder()
-//
-//        return true
-//
-//    }
-//}
