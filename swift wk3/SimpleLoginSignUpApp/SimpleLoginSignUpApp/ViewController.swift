@@ -34,11 +34,14 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        UISegmentedControl.appearance().selectedSegmentTintColor = .black
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal)
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected)
-        UISegmentedControl.appearance().backgroundColor = .white
-        UISegmentedControl.appearance().tintColor = .red
+        UISegmentedControl.appearance().selectedSegmentTintColor = .black //the thunb bar
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected) //selected text color
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal) //normal or unselected text color
+        
+        UISegmentedControl.appearance().backgroundColor = .white //the whole "bar" background
+        
     }
 
 
