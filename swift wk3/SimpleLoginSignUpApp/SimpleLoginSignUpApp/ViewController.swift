@@ -26,13 +26,18 @@ class ViewController: UIViewController {
             checkTextLabel.textColor = .gray
         case 1:
             checkTextField.isUserInteractionEnabled = true
+            checkTextField.backgroundColor = .white
+            checkTextLabel.textColor = .black
         default:
-            checkTextField.isUserInteractionEnabled = true
+            checkTextField.isUserInteractionEnabled = false
+            checkTextField.backgroundColor = .gray
+            checkTextLabel.textColor = .gray
         }
     }
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         UISegmentedControl.appearance().selectedSegmentTintColor = .black //the thunb bar
         
@@ -41,7 +46,7 @@ class ViewController: UIViewController {
         UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal) //normal or unselected text color
         
         UISegmentedControl.appearance().backgroundColor = .white //the whole "bar" background
-        
+
     }
 
 
