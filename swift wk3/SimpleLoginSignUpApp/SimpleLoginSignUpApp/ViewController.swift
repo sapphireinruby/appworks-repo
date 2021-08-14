@@ -9,7 +9,6 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var checkTextField: UITextField!
     
-    @IBOutlet weak var checkTextLabel: UILabel!
     
     override func viewDidLoad() {
         
@@ -31,19 +30,15 @@ class ViewController: UIViewController {
     }
     
     @IBAction func inputTypeSegment(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0:
+        if sender.selectedSegmentIndex == 0 {
             checkTextField.isUserInteractionEnabled = false
             checkTextField.backgroundColor = .gray
             checkTextLabel.textColor = .gray
-        case 1:
+            
+        } else if sender.selectedSegmentIndex == 1 {
             checkTextField.isUserInteractionEnabled = true
             checkTextField.backgroundColor = .white
             checkTextLabel.textColor = .black
-        default:
-            checkTextField.isUserInteractionEnabled = false
-            checkTextField.backgroundColor = .gray
-            checkTextLabel.textColor = .gray
         }
     }
     
@@ -62,7 +57,7 @@ class ViewController: UIViewController {
     } // check if the text field are filled in
     
     func onlyUserLogIn() -> Bool {
-        if accountTextField.text == "appworks_school@gmail.com" && passwordTextField.text == "1234"  {
+        if accountTextField.text == "appworks_school@gmail.com" && passwordTextField.text == "1234" && inputTypeSegment(<#T##sender: UISegmentedControl##UISegmentedControl#>) {
             return true
         }
         return false
