@@ -1,10 +1,3 @@
-//
-//  ViewController.swift
-//  SimpleLoginSignUpApp
-//
-//  Created by Amber on 8/12/21.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
@@ -35,8 +28,34 @@ class ViewController: UIViewController {
         }
     }
     
+    func validateField() -> String? {
+        
+        if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            
+            return "Please fill all fields."
+        }
+        
+        return nil
+    } // check if the text field are filled in
+    
+    
+    @IBAction func processButton(_ sender: UIButton) {
+        let error = validateField()
+        if error != nil {
+                let alert = UIAlertController(title: "Error", message: "Account or Password should not be empty.", preferredStyle: .alert)
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+                
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        }
+    }
     
 
+
+    
+
+    
     
     override func viewDidLoad() {
         
@@ -51,7 +70,6 @@ class ViewController: UIViewController {
         
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap) // tapping elasewhere on the view controller to dismiss the keyboard
-
     }
     
     
