@@ -28,23 +28,49 @@ class ViewController: UIViewController {
         }
     }
     
+//    func validateField() -> String? {
+//
+//        if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+//
+//            return "Please fill all fields."
+//        }
+//
+//        return nil
+//    } // check if all the text fields are filled in
+    
     func validateField() -> String? {
         
-        if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-            
-            return "Please fill all fields."
+        if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Account"
+        } else if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Password"
+        } else if checkTextField.text?.trimmingCharacters(in:  .whitespacesAndNewlines) == "" {
+            return "Check"
         }
-        
         return nil
     } // check if the text field are filled in
     
     
     @IBAction func processButton(_ sender: UIButton) {
-        let error = validateField()
-        if error != nil {
-                let alert = UIAlertController(title: "Error", message: "Account or Password should not be empty.", preferredStyle: .alert)
+        let errorField = validateField()
+        if errorField == "Account" {
+            let alert = UIAlertController(title: "Error", message: "Account should not be empty.", preferredStyle: .alert)
+            
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-                
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } else if errorField == "Password" {
+            let alert = UIAlertController(title: "Error", message: "Password should not be empty.", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } else if errorField == "Check" {
+            let alert = UIAlertController(title: "Error", message: "Check should not be empty.", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
