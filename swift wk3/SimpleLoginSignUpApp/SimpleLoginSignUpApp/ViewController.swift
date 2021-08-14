@@ -47,7 +47,18 @@ class ViewController: UIViewController {
     
 
     
-    func validateField() -> String? {
+    func validateLogInField() -> String? {
+        
+        if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Account"
+        } else if passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            return "Password"
+        }
+        return nil //nil is all good, means all text fields are filled in!
+    } // check if the text field are filled in and return the empty text field
+    
+    
+    func validateSignUpField() -> String? {
         
         if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
             return "Account"
@@ -58,7 +69,6 @@ class ViewController: UIViewController {
         }
         return nil //nil is all good, means all text fields are filled in!
     } // check if the text field are filled in and return the empty text field
-    
 
 
     func onlyUserLogIn() -> Bool {
@@ -68,33 +78,37 @@ class ViewController: UIViewController {
             return true
         }
         return false
-    } //check if the log in info. is correct
+    } //check if the log in info. is correct, set the only correct condition
     
     
-    func newSignUp() -> Bool {
-        if inputType.selectedSegmentIndex == 1 && passwordTextField.text == checkTextField.text{
-            return true
+    func matchingPassword() -> Bool {
+        if inputType.selectedSegmentIndex == 1 &&
+            passwordTextField.text != "" &&
+            passwordTextField.text == checkTextField.text &&
+            accountTextField.text != "" {
+            return true   //all right
         }
         return false
-    } //check sign in passwords
+    } //check if the sign in passwords matche and no fields left out.
     
     
     @IBAction func processButton(_ sender: UIButton) {
         let rightUser = onlyUserLogIn()
-        let emptyField = validateField()
-        let matchingPasswords = checkPassword()
+        let emptyLogInField = validateLogInField()
+        let emptySignUpField = validateSignUpField()
+        let rightSignUp = matchingPassword()
         
         //successful log in condiction
         if rightUser == true {
-            let alert = UIAlertController(title: "Welcome", message: "Log in successful.", preferredStyle: .alert) // worng log in information
+            let alert = UIAlertController(title: "Welcome", message: "Log in successful.", preferredStyle: .alert)
 
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
-        } //successful log in condiction
+        } //successful log in msg
         
-        if matchingPasswords == true && emptyField == nil {
+        if rightSignUp == true {
             let alert = UIAlertController(title: "Thank you", message: "Sign Up successful.", preferredStyle: .alert)
 
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
@@ -103,25 +117,58 @@ class ViewController: UIViewController {
             present(alert, animated:  true)
         }//successful Sign Up condiction
         
+        // Error confition and msg:
         
-        if  rightUser == false && emptyField == nil {
+        //log in: worng account but all fields filled in:
+        if  inputType.selectedSegmentIndex == 0 && rightUser == false && emptyLogInField == nil {
             let alert = UIAlertController(title: "Error", message: "Login fail.", preferredStyle: .alert) // worng log in information
 
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
-        } // check if log in info is correct
+        }
         
-        if emptyField != nil && rightUser != true {
-            let alert = UIAlertController(title: "Error", message: "\(emptyField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
+        // log in: worng account with empty field:
+        if  inputType.selectedSegmentIndex == 0 && rightUser == false && emptyLogInField != nil {
+            let alert = UIAlertController(title: "Error", message: "\(emptyLogInField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
+
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } //error msg with detail
+        
+        // sign up: with empty fields:
+        if inputType.selectedSegmentIndex == 1 && emptySignUpField != nil {
+            let alert = UIAlertController(title: "Error", message: "\(emptySignUpField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
             
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
-        } // Show error msg for each empty fields
+        } //error msg with detail
         
+        
+        // sign up: matching passwords with empty fields:
+        if inputType.selectedSegmentIndex == 1 && emptySignUpField != nil && rightSignUp == true {
+            let alert = UIAlertController(title: "Error", message: "\(emptySignUpField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } //error msg with detail
+        
+        // sign up: passwords not matching but no empty fields:
+        if inputType.selectedSegmentIndex == 1 && emptySignUpField == nil && rightSignUp != true {
+            let alert = UIAlertController(title: "Error", message: "Sing Up faild.", preferredStyle: .alert)
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } //error msg with detail
     }
     
     
