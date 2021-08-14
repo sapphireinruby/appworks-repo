@@ -11,6 +11,25 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var checkTextLabel: UILabel!
     
+    override func viewDidLoad() {
+        
+        super.viewDidLoad()
+        UISegmentedControl.appearance().selectedSegmentTintColor = .black //the thunb bar
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected) //selected text color
+        
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal) //normal or unselected text color
+        
+        UISegmentedControl.appearance().backgroundColor = .white //the whole "bar" background
+        
+        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
+        view.addGestureRecognizer(tap) // tapping elasewhere on the view controller to dismiss the keyboard
+        
+        checkTextField.isUserInteractionEnabled = false
+        checkTextField.backgroundColor = .gray
+        checkTextLabel.textColor = .gray
+    }
+    
     @IBAction func inputTypeSegment(_ sender: UISegmentedControl) {
         switch sender.selectedSegmentIndex {
         case 0:
@@ -28,15 +47,7 @@ class ViewController: UIViewController {
         }
     }
     
-//    func validateField() -> String? {
-//
-//        if accountTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
-//
-//            return "Please fill all fields."
-//        }
-//
-//        return nil
-//    } // check if all the text fields are filled in
+
     
     func validateField() -> String? {
         
@@ -51,54 +62,36 @@ class ViewController: UIViewController {
     } // check if the text field are filled in
     
     func onlyUserLogIn() -> Bool {
-        if accountTextField.text == "appworks" {
+        if accountTextField.text == "appworks_school@gmail.com" && passwordTextField.text == "1234"  {
             return true
         }
         return false
-    }
+    } //check if the log in info. is correct
     
     @IBAction func processButton(_ sender: UIButton) {
-        let errorField = validateField()
-        if errorField != nil {
-            let alert = UIAlertController(title: "Error", message: "\(errorField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
+        let rightUser = onlyUserLogIn()
+        print(onlyUserLogIn())
+        
+        let emptyField = validateField()
+        
+        if rightUser == false {
+            let alert = UIAlertController(title: "Error", message: "Login fail.", preferredStyle: .alert) // worng log in information
             
             let action = UIAlertAction(title: "OK", style: .default, handler: { action in
             })
             alert.addAction(action)
             present(alert, animated:  true)
-//        } else if errorField == "Password" {
-//            let alert = UIAlertController(title: "Error", message: "Password should not be empty.", preferredStyle: .alert)
-//
-//            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-//            })
-//            alert.addAction(action)
-//            present(alert, animated:  true)
-//        } else if errorField == "Check" {
-//            let alert = UIAlertController(title: "Error", message: "Check should not be empty.", preferredStyle: .alert)
-//
-//            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
-//            })
-//            alert.addAction(action)
-//            present(alert, animated:  true)
-        }
-    } // Show error msg for each empty fields
-    
-
-
-    
-    override func viewDidLoad() {
+        } // check if log in info is correct
         
-        super.viewDidLoad()
-        UISegmentedControl.appearance().selectedSegmentTintColor = .black //the thunb bar
+        if emptyField != nil {
+            let alert = UIAlertController(title: "Error", message: "\(emptyField!) should not be empty.", preferredStyle: .alert) // ! to force unwrap which field is empty
+            
+            let action = UIAlertAction(title: "OK", style: .default, handler: { action in
+            })
+            alert.addAction(action)
+            present(alert, animated:  true)
+        } // Show error msg for each empty fields
         
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.white], for: .selected) //selected text color
-        
-        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor : UIColor.black], for: .normal) //normal or unselected text color
-        
-        UISegmentedControl.appearance().backgroundColor = .white //the whole "bar" background
-        
-        let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
-        view.addGestureRecognizer(tap) // tapping elasewhere on the view controller to dismiss the keyboard
     }
     
     
