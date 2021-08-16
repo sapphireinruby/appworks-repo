@@ -40,7 +40,8 @@ class ViewController: UIViewController {
         checkTextLabel.textColor = .gray
         
         //try to set up the three text lables to be the same width
-        accountTextLabel.width
+        accountTextLabel.widthAnchor
+        
         
 
 
