@@ -39,12 +39,41 @@ class ViewController: UIViewController {
         checkTextField.backgroundColor = .gray
         checkTextLabel.textColor = .gray
         
-//        //try to set up the three text lables to be the same width
-//        accountTextLabel.widthAnchor
         
         
+        //try to set up the three text lables and text fields to be the same width
+        accountTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        checkTextLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        accountTextField.translatesAutoresizingMaskIntoConstraints = false
+        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+        checkTextField.translatesAutoresizingMaskIntoConstraints = false
+        
+        let viewsDictionary = ["lab1" : accountTextLabel, "field1": accountTextField]
+//        ["lab2" : passwordTextLabel, "field2": passwordTextField]
+//        ["lab3" : checkTextLabel, "field3": checkTextField]
+//
+//        view.addConstraints( NSLayoutConstraint.constraints(withVisualFormat: "H:|[lab1]|", options: [], metrics: nil, views: viewsDictionary))
+      
+        
+        
+//        Visual Format Language
+//        H:|-[find]-[findNext]-[findField(>=20)]-|
+//        H: (Horizontal) //horizontal direction
+//        | (pipe) //superview
+//        - (dash) //standard spacing (generally 8 points)
+//        [] (brackets) //name of the object (uilabel, unbutton, uiview, etc.)
+//        () (parentheses) //size of the object
+
+        
+        NSLayoutConstraint.activate([
+            accountTextLabel.rightAnchor.constraint(equalTo: passwordTextLabel.rightAnchor),
+//            passwordTextLabel.widthAnchor.constraint(equalToConstant: 8),
+            checkTextLabel.rightAnchor.constraint(equalTo: passwordTextLabel.rightAnchor),
 
 
+        ])
         
         
     }
