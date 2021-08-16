@@ -10,8 +10,8 @@ func ifOdd(number: Int) -> Bool {
 ifOdd(number: 9)
 
 
-var ifOddFunc: ((Int) -> Bool) = {number in
-    if number % 2 == 1 {
+var ifOddFunc: ((Int) -> Bool) = {anyNumber in
+    if anyNumber % 2 == 1 {
         return true
     }
     return false
