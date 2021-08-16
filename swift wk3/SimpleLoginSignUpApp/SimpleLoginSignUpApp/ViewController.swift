@@ -11,7 +11,14 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var checkTextLabel: UILabel!
     
+    @IBOutlet weak var accountTextLabel: UILabel!
+    
+    @IBOutlet weak var passwordTextLabel: UILabel!
+    
     @IBOutlet weak var inputType: UISegmentedControl!
+    
+    
+    
     
     override func viewDidLoad() {
         
@@ -27,9 +34,18 @@ class ViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing))
         view.addGestureRecognizer(tap) // tapping elasewhere on the view controller to dismiss the keyboard
         
+        // set the "Check" field disabled when load, due to the log in status:
         checkTextField.isUserInteractionEnabled = false
         checkTextField.backgroundColor = .gray
         checkTextLabel.textColor = .gray
+        
+        //try to set up the three text lables to be the same width
+        accountTextLabel.width
+        
+
+
+        
+        
     }
     
     @IBAction func inputTypeSegment(_ sender: UISegmentedControl) {
