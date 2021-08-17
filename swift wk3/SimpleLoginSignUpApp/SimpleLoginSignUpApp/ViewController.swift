@@ -46,9 +46,9 @@ class ViewController: UIViewController {
         passwordTextLabel.translatesAutoresizingMaskIntoConstraints = false
         checkTextLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        accountTextField.translatesAutoresizingMaskIntoConstraints = false
-        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
-        checkTextField.translatesAutoresizingMaskIntoConstraints = false
+//        accountTextField.translatesAutoresizingMaskIntoConstraints = false
+//        passwordTextField.translatesAutoresizingMaskIntoConstraints = false
+//        checkTextField.translatesAutoresizingMaskIntoConstraints = false
         
 //        let viewsDictionary = ["lab1" : accountTextLabel, "field1": accountTextField]
 //        ["lab2" : passwordTextLabel, "field2": passwordTextField]
@@ -69,7 +69,7 @@ class ViewController: UIViewController {
         
         NSLayoutConstraint.activate([
             accountTextLabel.rightAnchor.constraint(equalTo: passwordTextLabel.rightAnchor),
-//            passwordTextLabel.widthAnchor.constraint(equalToConstant: 8),
+//            passwordTextLabel.widthAnchor.constraint(equalToConstant: 80),
             checkTextLabel.rightAnchor.constraint(equalTo: passwordTextLabel.rightAnchor),
 
 
