@@ -46,10 +46,10 @@
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleAspectFit" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-Rd-rDK">
-                                <rect key="frame" x="107" y="316.5" width="200" height="118"/>
+                                <rect key="frame" x="92" y="316.5" width="230" height="118"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="DTH-Yb-0Bo">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="34"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="230" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Account" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lyh-x9-euQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="63.5" height="34"/>
@@ -58,14 +58,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LGp-Na-MWG">
-                                                <rect key="frame" x="70.5" y="0.0" width="129.5" height="34"/>
+                                                <rect key="frame" x="70.5" y="0.0" width="159.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="XLL-Ht-kYP">
-                                        <rect key="frame" x="0.0" y="42" width="200" height="34"/>
+                                        <rect key="frame" x="0.0" y="42" width="230" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6q-uk-0bz">
                                                 <rect key="frame" x="0.0" y="0.0" width="73.5" height="34"/>
@@ -74,14 +74,14 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mlc-3e-vd9">
-                                                <rect key="frame" x="80.5" y="0.0" width="119.5" height="34"/>
+                                                <rect key="frame" x="80.5" y="0.0" width="149.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="OSG-ad-h7D">
-                                        <rect key="frame" x="0.0" y="84" width="200" height="34"/>
+                                        <rect key="frame" x="0.0" y="84" width="230" height="34"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Check" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="huW-Co-q7A">
                                                 <rect key="frame" x="0.0" y="0.0" width="48.5" height="34"/>
@@ -90,7 +90,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BEq-Uh-S2x">
-                                                <rect key="frame" x="55.5" y="0.0" width="144.5" height="34"/>
+                                                <rect key="frame" x="55.5" y="0.0" width="174.5" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
@@ -98,7 +98,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="AjN-eh-WI7"/>
+                                    <constraint firstAttribute="width" constant="230" id="AjN-eh-WI7"/>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" priority="750" constant="125" id="gjr-bH-s03"/>
                                 </constraints>
                             </stackView>
@@ -126,12 +126,11 @@
                             <constraint firstItem="acT-E1-XSZ" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="NNj-Df-4Q8"/>
                             <constraint firstItem="tNp-SX-n5x" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Uh7-1S-aAk"/>
                             <constraint firstItem="tNp-SX-n5x" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="Yc6-Aw-DQD"/>
+                            <constraint firstItem="QRI-FO-eu6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bal-t5-rBX"/>
                             <constraint firstItem="7cC-2T-PUu" firstAttribute="top" secondItem="iW0-Rd-rDK" secondAttribute="bottom" constant="50" id="faT-IT-Heg"/>
                             <constraint firstItem="QRI-FO-eu6" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="g8W-5t-Aaa"/>
                             <constraint firstItem="iW0-Rd-rDK" firstAttribute="centerX" secondItem="QRI-FO-eu6" secondAttribute="centerX" id="hew-aF-chR"/>
                             <constraint firstItem="acT-E1-XSZ" firstAttribute="top" secondItem="tNp-SX-n5x" secondAttribute="bottom" constant="70" id="k5g-N3-RxW"/>
-                            <constraint firstItem="iW0-Rd-rDK" firstAttribute="leading" relation="lessThanOrEqual" secondItem="QRI-FO-eu6" secondAttribute="trailing" constant="-212.5" id="oKE-eh-WQe"/>
-                            <constraint firstItem="iW0-Rd-rDK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="xdM-2G-JaN"/>
                         </constraints>
                     </view>
                     <connections>
