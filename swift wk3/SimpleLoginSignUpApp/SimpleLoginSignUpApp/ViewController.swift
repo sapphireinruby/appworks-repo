@@ -50,7 +50,7 @@ class ViewController: UIViewController {
         passwordTextField.translatesAutoresizingMaskIntoConstraints = false
         checkTextField.translatesAutoresizingMaskIntoConstraints = false
         
-        let viewsDictionary = ["lab1" : accountTextLabel, "field1": accountTextField]
+//        let viewsDictionary = ["lab1" : accountTextLabel, "field1": accountTextField]
 //        ["lab2" : passwordTextLabel, "field2": passwordTextField]
 //        ["lab3" : checkTextLabel, "field3": checkTextField]
 //
