@@ -1,6 +1,6 @@
 import UIKit
 
 struct RowInfo {
-    let Section: Int
-    let Row: Int
+    let Section: String
+    let Row: String
 }
