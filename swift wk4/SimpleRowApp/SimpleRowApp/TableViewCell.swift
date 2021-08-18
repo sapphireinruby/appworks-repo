@@ -1,12 +1,10 @@
-//
-//  TableViewCell.swift
-//  SimpleRowApp
-//
-//  Created by Amber on 8/17/21.
-//
 
-import Foundation
+import UIKit
 
-class TableViewCell : UITableViewCell{
+class TableViewCell : UITableViewCell
+{
+    
+
+    @IBOutlet weak var rowInfoLabel: UILabel!
     
 }
