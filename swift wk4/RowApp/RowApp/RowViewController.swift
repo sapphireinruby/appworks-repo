@@ -22,7 +22,8 @@ class RowViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RowCell", for: indexPath)
         let rowInfo = RowInfo(
-            Section: "section \(indexPath)", Row: "row \(indexPath)"
+            Section: "This is section \(indexPath[0]), row \(indexPath[1])"
+            //indexPath: from section 0, row 0 : [0,0], [0,1]
         )
         cell.textLabel?.text = rowInfo.Section
         return cell
