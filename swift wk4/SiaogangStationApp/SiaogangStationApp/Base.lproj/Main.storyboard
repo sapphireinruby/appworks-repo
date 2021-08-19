@@ -46,6 +46,11 @@
                             <constraint firstItem="cPO-rs-Nnl" firstAttribute="top" secondItem="oTD-cJ-92C" secondAttribute="bottom" constant="35" id="ufX-js-7P5"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="AddLabel" destination="Fe2-9M-Fya" id="s36-eN-ByG"/>
+                        <outlet property="IDLabel" destination="oTD-cJ-92C" id="mJi-A3-ZZ7"/>
+                        <outlet property="NameLabel" destination="cPO-rs-Nnl" id="Y16-SH-inq"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
