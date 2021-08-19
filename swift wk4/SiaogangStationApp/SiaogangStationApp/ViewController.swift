@@ -1,17 +1,23 @@
 //
-//  ViewController.swift
-//  SiaogangStationApp
-//
-//  Created by Amber on 8/19/21.
-//
-
 import UIKit
 
+struct Response
+{
+    let stationID: String
+    let stationName: String
+    let stationAddress: String
+}
+
+
+
 class ViewController: UIViewController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+        let myResponse = Response(stationID: "R0", stationName: "Taipei", stationAddress: "some address")
+        print(myResponse)
     }
 
 
