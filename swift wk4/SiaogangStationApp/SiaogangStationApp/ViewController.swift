@@ -26,8 +26,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadStationInfo()
 
-        IDLabel.text = "R0"
-        
         let myResponse = Response(stationID: "R0", stationName: "Taipei", stationAddress: "some address")
         print(myResponse)
     }
@@ -56,8 +54,9 @@ class ViewController: UIViewController {
                 return
             }
 
-            self.IDLabel.text = json.stationID
-            self.NameLabel.text = json.stationName
+            print(json.stationID)
+            print(json.stationName)
+            print(json.stationAddress)
 
         }
         
