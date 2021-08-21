@@ -2,5 +2,5 @@ import UIKit
 
 struct RowInfo {
     let Section: String
-    //let Row: String
+    // or let Row: String
 }

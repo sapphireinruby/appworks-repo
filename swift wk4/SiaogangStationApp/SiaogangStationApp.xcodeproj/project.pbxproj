@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A738FEA326D0D10000D343AB /* StationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A738FEA226D0D10000D343AB /* StationInfo.swift */; };
 		A785FEE626CE1FD60068F5D0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785FEE526CE1FD60068F5D0 /* AppDelegate.swift */; };
 		A785FEE826CE1FD60068F5D0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785FEE726CE1FD60068F5D0 /* SceneDelegate.swift */; };
 		A785FEEA26CE1FD60068F5D0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A785FEE926CE1FD60068F5D0 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A738FEA226D0D10000D343AB /* StationInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StationInfo.swift; sourceTree = "<group>"; };
 		A785FEE226CE1FD60068F5D0 /* SiaogangStationApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SiaogangStationApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A785FEE526CE1FD60068F5D0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A785FEE726CE1FD60068F5D0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -60,6 +62,7 @@
 				A785FEE726CE1FD60068F5D0 /* SceneDelegate.swift */,
 				A785FEE926CE1FD60068F5D0 /* ViewController.swift */,
 				A785FEEB26CE1FD60068F5D0 /* Main.storyboard */,
+				A738FEA226D0D10000D343AB /* StationInfo.swift */,
 				A785FEEE26CE1FD90068F5D0 /* Assets.xcassets */,
 				A785FEF026CE1FD90068F5D0 /* LaunchScreen.storyboard */,
 				A785FEF326CE1FD90068F5D0 /* Info.plist */,
@@ -139,6 +142,7 @@
 			files = (
 				A785FEEA26CE1FD60068F5D0 /* ViewController.swift in Sources */,
 				A785FEE626CE1FD60068F5D0 /* AppDelegate.swift in Sources */,
+				A738FEA326D0D10000D343AB /* StationInfo.swift in Sources */,
 				A785FEE826CE1FD60068F5D0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

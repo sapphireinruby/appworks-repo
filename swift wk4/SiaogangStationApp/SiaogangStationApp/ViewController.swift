@@ -12,22 +12,22 @@ class ViewController: UIViewController {
     @IBOutlet weak var AddLabel: UILabel!
     
     
-    // set up Struct
-    
-    struct Response: Codable
-    {
-        let stationID: String
-        let stationName: String
-        let stationAddress: String
-    }
+//    // set up Struct
+//
+//    struct Response: Codable
+//    {
+//        let stationID: String
+//        let stationName: String
+//        let stationAddress: String
+//    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
         loadStationInfo()
 
-//        IDLabel.text = jsonStationID
-        
+        //IDLabel.text = jsonStationID
+       // IDLabel.text = "\(Response:stationID)"
         
     }
     
@@ -54,10 +54,13 @@ class ViewController: UIViewController {
             guard let json = result else {
                 return
             }
-
-            let jsonStationID = json.stationID
-            let jsonStationName = json.stationName
-            let jsonStationAddress = json.stationAddress
+            
+            let ID = Response(stationID: "\(Response.stationID)"
+            self.NameLabel.text = json.stationName
+            
+           // IDLabel.text = "\(Response.stationID)"
+            print(json.stationName)
+            print(json.stationAddress)
 
         }
         
