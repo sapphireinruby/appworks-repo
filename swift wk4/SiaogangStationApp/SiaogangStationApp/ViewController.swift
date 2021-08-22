@@ -26,7 +26,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         loadStationInfo()
 
-        //IDLabel.text = jsonStationID
+        //NameLabel.text =  "so tired"
        // IDLabel.text = "\(Response:stationID)"
         
     }
@@ -46,19 +46,28 @@ class ViewController: UIViewController {
             var result: Response?
             do {
                 result = try JSONDecoder().decode(Response.self, from: data)
+
+                DispatchQueue.main.async {
+                    self.IDLabel.text = result?.stationID
+                    self.NameLabel.text = result?.stationName
+                    self.AddLabel.text = result?.stationAddress
+                }
+                
+                
             }
             catch{
                 print("failed to convert \(error.localizedDescription)")
             }
             
+            // test run print (result)
+            
             guard let json = result else {
                 return
             }
             
-            let ID = Response(stationID: "\(Response.stationID)"
-            self.NameLabel.text = json.stationName
+            //return result
             
-           // IDLabel.text = "\(Response.stationID)"
+            self.IDLabel.text = json.stationID
             print(json.stationName)
             print(json.stationAddress)
 
