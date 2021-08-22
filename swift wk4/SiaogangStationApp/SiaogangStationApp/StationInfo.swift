@@ -6,7 +6,7 @@ public struct Response: Codable
     public let stationID: String
     public let stationName: String
     public let stationAddress: String
-
+    
     public init(
         stationID: String,
         stationName: String,
@@ -16,5 +16,5 @@ public struct Response: Codable
         self.stationName = stationName
         self.stationAddress = stationAddress
     }
-
+    
 }
