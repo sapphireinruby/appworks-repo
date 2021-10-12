@@ -28,7 +28,15 @@ class ViewController: UIViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "ItemTableViewCell")
         tableView.delegate = self
         tableView.dataSource = self
+
         
+        var articles = [article]() {
+            didSet {
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
+                }
+            }
+        }
         
         let articles = Firestore.firestore().collection("articles") // 資料的路徑
         articles.getDocuments { snapshot, error in
@@ -99,7 +107,9 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath)
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "ItemTableViewCell", for: indexPath)
+        
+        let cell = UITableViewCell(style: .subtitle, reuseIdentifier: "ItemTableViewCell")
         
         let article = articles[indexPath.row]
 
