@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var AddLabel: UILabel!
     
     
-//    // set up Struct
+//    // set up Struct, move to resource file
 //
 //    struct Response: Codable
 //    {
@@ -25,9 +25,6 @@ class ViewController: UIViewController {
     {
         super.viewDidLoad()
         loadStationInfo()
-
-        //NameLabel.text =  "so tired"
-       // IDLabel.text = "\(Response:stationID)"
         
     }
     
@@ -47,29 +44,26 @@ class ViewController: UIViewController {
             do {
                 result = try JSONDecoder().decode(Response.self, from: data)
 
+                //put the queue back to main thread
                 DispatchQueue.main.async {
                     self.IDLabel.text = result?.stationID
                     self.NameLabel.text = result?.stationName
                     self.AddLabel.text = result?.stationAddress
                 }
                 
-                
             }
             catch{
                 print("failed to convert \(error.localizedDescription)")
             }
             
-            // test run print (result)
-            
             guard let json = result else {
                 return
             }
             
-            //return result
-            
-            self.IDLabel.text = json.stationID
-            print(json.stationName)
-            print(json.stationAddress)
+//            //test print
+//            print(json.stationID)
+//            print(json.stationName)
+//            print(json.stationAddress)
 
         }
         

@@ -23,7 +23,7 @@ class RowViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RowCell", for: indexPath)
         let rowInfo = RowInfo(
             Section: "This is section \(indexPath[0]), row \(indexPath[1])"
-            //indexPath: from section 0, row 0 : [0,0], [0,1]
+            //indexPath: from section 0, row 0 , indexPath[0]:section, indexPath[1]: row
         )
         cell.textLabel?.text = rowInfo.Section
         return cell
