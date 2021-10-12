@@ -15,6 +15,8 @@
 		A7F2BF242715191E001F8884 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7F2BF222715191E001F8884 /* LaunchScreen.storyboard */; };
 		A7F2BF2C271519C4001F8884 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A7F2BF2B271519C4001F8884 /* GoogleService-Info.plist */; };
 		A7F2BF2E271523E7001F8884 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F2BF2D271523E7001F8884 /* Model.swift */; };
+		A7F2BF3027155F3B001F8884 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F2BF2F27155F3B001F8884 /* PublishViewController.swift */; };
+		A7F2BF3227156CBE001F8884 /* ItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7F2BF3127156CBE001F8884 /* ItemTableViewCell.swift */; };
 		F55617B41FFAD2975DC4BA5E /* Pods_Publisher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F46686415724DB5DBB0AF2E5 /* Pods_Publisher.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +32,8 @@
 		A7F2BF252715191E001F8884 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A7F2BF2B271519C4001F8884 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../GoogleService-Info.plist"; sourceTree = "<group>"; };
 		A7F2BF2D271523E7001F8884 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		A7F2BF2F27155F3B001F8884 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		A7F2BF3127156CBE001F8884 /* ItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemTableViewCell.swift; sourceTree = "<group>"; };
 		C9F6B8AA59D2FBCD0D26CFF5 /* Pods-Publisher.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Publisher.release.xcconfig"; path = "Target Support Files/Pods-Publisher/Pods-Publisher.release.xcconfig"; sourceTree = "<group>"; };
 		F46686415724DB5DBB0AF2E5 /* Pods_Publisher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Publisher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -70,7 +74,9 @@
 				A7F2BF2B271519C4001F8884 /* GoogleService-Info.plist */,
 				A7F2BF172715191A001F8884 /* AppDelegate.swift */,
 				A7F2BF2D271523E7001F8884 /* Model.swift */,
+				A7F2BF3127156CBE001F8884 /* ItemTableViewCell.swift */,
 				A7F2BF192715191A001F8884 /* SceneDelegate.swift */,
+				A7F2BF2F27155F3B001F8884 /* PublishViewController.swift */,
 				A7F2BF1B2715191A001F8884 /* ViewController.swift */,
 				A7F2BF1D2715191A001F8884 /* Main.storyboard */,
 				A7F2BF202715191E001F8884 /* Assets.xcassets */,
@@ -213,9 +219,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7F2BF3027155F3B001F8884 /* PublishViewController.swift in Sources */,
 				A7F2BF1C2715191A001F8884 /* ViewController.swift in Sources */,
 				A7F2BF182715191A001F8884 /* AppDelegate.swift in Sources */,
 				A7F2BF1A2715191A001F8884 /* SceneDelegate.swift in Sources */,
+				A7F2BF3227156CBE001F8884 /* ItemTableViewCell.swift in Sources */,
 				A7F2BF2E271523E7001F8884 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

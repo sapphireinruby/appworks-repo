@@ -8,18 +8,18 @@
 import Foundation
 import FirebaseFirestore
 
-struct article: Codable, Identifiable  {
+struct Article {
     
     let author: [authorItem]
     let title: String
     let content: String
     let createdTime: Timestamp
-    let id: Int
+    let id: String
     let category: String
     
 }
 
-struct authorItem: Codable  {
+struct authorItem: Codable, Identifiable   {
     
     let email: String
     let id: String

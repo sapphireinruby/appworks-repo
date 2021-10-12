@@ -8,5 +8,6 @@ target 'Publisher' do
 
 pod 'Firebase/Firestore'
 pod 'Firebase/Core'
+pod "ESPullToRefresh"
 
 end
