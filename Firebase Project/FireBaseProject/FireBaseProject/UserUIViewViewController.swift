@@ -48,8 +48,8 @@ class UserUIViewViewController: UIViewController {
         
         guard let  emailTextField = emailTextField.text else { return }
         
-        db.collection("Users").whereField("email", isEqualTo: emailTextField)
-            .getDocuments() { (querySnapshot, err) in
+        db.collection("Users").whereField("email", isEqualTo: emailTextField) //若有users 的email 和輸入的文字一樣
+            .getDocuments() { (querySnapshot, err) in  //  尋找有沒有這個使用者，有就抓他的資料
                 
                 if let err = err {
                     print("Error finding User email: \(err)")
@@ -57,9 +57,10 @@ class UserUIViewViewController: UIViewController {
                 } else {
                     for document in querySnapshot!.documents {
                         
-                        self.userID = document.documentID
+                        self.userID = document.documentID    // 指定documentID 為userID
                         
-                        print("\(document.documentID) => \(document.data())")
+                        print("\(document.documentID) => \(document.data())") // 透過id 把整筆資料列出來
+                        
                     }
                 }
             }
@@ -172,6 +173,7 @@ class UserUIViewViewController: UIViewController {
             } else {
                 
                 for document in querySnapshot!.documents {
+                    // 抓對方寄來邀請的資料
                     
                     guard let name = document.get("name") as? String,
                           let id = document.get("id") as? String,
@@ -179,6 +181,7 @@ class UserUIViewViewController: UIViewController {
                               print("can't get invitation document")
                               return
                           }
+                    
                     // 把邀請下面的資料 加進自己的friendList
                     db.collection("Users").document(id ).collection("friendList").document("userId_Amber").setData([
                         
